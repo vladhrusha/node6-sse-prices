@@ -1,4 +1,4 @@
-{
+
   const removeClient = ({ newClient, clients }) => {
     clients.splice(clients.indexOf(newClient), 1);
   };
@@ -14,4 +14,4 @@
   };
 
   module.exports = { addClient, removeClient };
-}
+

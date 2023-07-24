@@ -1,9 +1,9 @@
 const express = require("express");
 require("dotenv").config();
-const fetchData = require("./utils/fetchData.ts");
-const sendSSEUpdate = require("./utils/sendSSEUpdate.ts");
-const logger = require("./utils/logger.ts");
-const handleGetUpdate = require("./endpoints/handleGetUpdate.ts");
+const fetchData = require("./utils/fetchData.js");
+const sendSSEUpdate = require("./utils/sendSSEUpdate.js");
+const logger = require("./utils/logger.js");
+const handleGetUpdate = require("./endpoints/handleGetUpdate.js");
 
 const app = express();
 const port = process.env.PORT;

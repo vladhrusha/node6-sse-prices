@@ -1,4 +1,4 @@
-{
+
   const filterByRankLessThan5 = (coinData) => {
     return coinData
       .filter((coin) => coin.rank <= 5)
@@ -11,4 +11,4 @@
       }));
   };
   module.exports = filterByRankLessThan5;
-}
+

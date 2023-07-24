@@ -1,5 +1,5 @@
-{
-  const filterByRankLessThan5 = require("./filterByRankLessThan5.ts");
+
+  const filterByRankLessThan5 = require("./filterByRankLessThan5.js");
 
   const sendSSEUpdate = (clients, coinData) => {
     if (!clients) return;
@@ -9,4 +9,4 @@
     });
   };
   module.exports = sendSSEUpdate;
-}
+

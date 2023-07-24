@@ -23,8 +23,6 @@
     "pino-pretty": "^10.1.0"
   },
   "devDependencies": {
-    "@types/express": "^4.17.17",
-    "@types/node": "^20.4.3",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-standard": "^17.1.0",
@@ -34,8 +32,7 @@
     "eslint-plugin-promise": "^6.1.1",
     "husky": "^8.0.0",
     "lint-staged": "^13.2.3",
-    "prettier": "^3.0.0",
-    "typescript": "^5.1.6"
+    "prettier": "^3.0.0"
   },
   "lint-staged": {
     "**/*.ts": "tsc-files --noEmit"
