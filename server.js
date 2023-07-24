@@ -1,10 +1,8 @@
 const express = require("express");
 require("dotenv").config();
-const fetchData = require("./utils/fetchData.js");
-const sendSSEUpdate = require("./utils/sendSSEUpdate.js");
 const logger = require("./utils/logger.js");
-const handleGetUpdate = require("./endpoints/handleGetUpdate.js");
-
+const handleConnection = require("./endpoints/coins/handleConnection.js");
+const handleUpdate = require("./endpoints/coins/handleUpdate.js");
 const app = express();
 const port = process.env.PORT;
 const clients = [];
@@ -22,23 +20,21 @@ app.get(`/${appName}/${appVersion}/coins`, async (req, res) => {
   res.writeHead(200, headers);
 
   // add connection to update list
-  const newClient = handleGetUpdate.addClient({ res, clients });
+  const newClient = handleConnection.addClient({ res, clients });
   logger.info(`Client ${newClient.id} connected`);
 
   // initial update
-  coinData = await fetchData();
-  sendSSEUpdate(clients, coinData.data);
+  handleUpdate({ clients, coinData });
 
   // remove reduntant data
   req.on("close", () => {
     logger.info(`Client ${newClient.id} disconnected`);
-    handleGetUpdate.removeClient({ newClient, clients });
+    handleConnection.removeClient({ newClient, clients });
   });
 });
-// set update interval
+// update interval
 setInterval(async () => {
-  coinData = await fetchData();
-  sendSSEUpdate(clients, coinData.data);
+  handleUpdate({ clients, coinData });
 }, 30000);
 
 app.listen(port, () => {

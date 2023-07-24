@@ -35,7 +35,7 @@
     "prettier": "^3.0.0"
   },
   "lint-staged": {
-    "**/*.ts": "tsc-files --noEmit"
+    "**/*.js": "tsc-files --noEmit"
   },
   "husky": {
     "hooks": {
