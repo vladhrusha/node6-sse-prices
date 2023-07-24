@@ -7,7 +7,6 @@ const handleUpdate = async ({ clients, coinData }) => {
     sendSSEUpdate(clients, coinData.data);
   } catch (err) {
     clients.forEach((client) => {
-      client.res.statusCode = 500;
       client.res.write(`${err}\n\n`);
     });
   }
