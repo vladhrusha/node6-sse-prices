@@ -1,0 +1,13 @@
+{
+  "env": {
+    "node": true,
+    "commonjs": true,
+  },
+  "extends": ["standard", "plugin:prettier/recommended"],
+  "overrides": [],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": { "no-console": "error" },
+  "plugins": ["prettier"]
+}
